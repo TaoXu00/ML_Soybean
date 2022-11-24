@@ -35,7 +35,7 @@ def plot_results(prediction, O_Error):
     #plt.xlabel(X_label)
     plt.xticks(bars[0],X_label)
     plt.legend(fontsize=25, loc='lower left')
-    plt.savefig("RMSE of %s" %(prediction))
+    plt.savefig("plots/ML_plots/RMSE of %s" %(prediction))
     plt.close()
 
 def feature_group(dataset_name):
@@ -98,13 +98,13 @@ def model_selection(models, o_dict, X):
 
 
 def main():
-    dataset_name="origin"
+    dataset_name="aggre"
     if dataset_name=="origin":
-        soybean_df = pd.read_csv('ML_Data_09162022.csv')
+        soybean_df = pd.read_csv('Dataset/ML_Data_09162022.csv')
         soybean_df.drop(soybean_df[soybean_df["rMG1"] == 7].index, inplace=True)
         outputs = ['Yield', 'Oil', 'Protein']
     elif dataset_name=="aggre":
-        soybean_df = pd.read_excel('ML_DB_V1.xlsx')
+        soybean_df = pd.read_excel('Dataset/ML_DB_V1.xlsx')
         outputs = ['Yield_OBS', 'Oil_OBS', 'Protein_OBS']
 
     soybean_df.dropna(inplace=True)
